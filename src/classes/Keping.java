@@ -6,6 +6,7 @@ public class Keping {
     private int tinggi;
     private Titik[] bentuk;
     private int nTitik;
+    private String huruf;
 
     // Metode (Methods)
     /// Setters
@@ -21,6 +22,9 @@ public class Keping {
     public void setnTitik(int nTitik) {
         this.nTitik = nTitik;
     }
+    public void setHuruf(String huruf) {
+        this.huruf = huruf;
+    }
 
     /// Getters
     public int getPanjang() {
@@ -35,13 +39,17 @@ public class Keping {
     public int getnTitik() {
         return nTitik;
     }
+    public String getHuruf() {
+        return huruf;
+    }
 
     /// Konstruktor (Constructor)
-    public Keping(int panjang, int tinggi, Titik[] bentuk) {
+    public Keping(int panjang, int tinggi, Titik[] bentuk, String huruf) {
         this.setPanjang(panjang);
         this.setTinggi(tinggi);
         this.setBentuk(bentuk);
         this.setnTitik(bentuk.length);
+        this.setHuruf(huruf);
     }
 
     /// Transformasi (Transformation)
