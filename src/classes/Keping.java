@@ -1,12 +1,13 @@
 package src.classes;
 
 public class Keping {
-    // Atribut
+    // Atribut (Attributes)
     private int panjang;
     private int tinggi;
-    private int[][] bentuk;
+    private Titik[] bentuk;
+    private int nTitik;
 
-    // Metode
+    // Metode (Methods)
     /// Setters
     public void setPanjang(int panjang) {
         this.panjang = panjang;
@@ -14,8 +15,11 @@ public class Keping {
     public void setTinggi(int tinggi) {
         this.tinggi = tinggi;
     }
-    public void setBentuk(int[][] bentuk) {
+    public void setBentuk(Titik[] bentuk) {
         this.bentuk = bentuk;
+    }
+    public void setnTitik(int nTitik) {
+        this.nTitik = nTitik;
     }
 
     /// Getters
@@ -25,44 +29,46 @@ public class Keping {
     public int getTinggi() {
         return tinggi;
     }
-    public int[][] getBentuk() {
+    public Titik[] getBentuk() {
         return bentuk;
     }
+    public int getnTitik() {
+        return nTitik;
+    }
 
-    /// Konstruktor
-    public Keping(int panjang, int tinggi, int[][] bentuk) {
+    /// Konstruktor (Constructor)
+    public Keping(int panjang, int tinggi, Titik[] bentuk) {
         this.setPanjang(panjang);
         this.setTinggi(tinggi);
         this.setBentuk(bentuk);
+        this.setnTitik(bentuk.length);
     }
 
-    /// Transformasi
-    //// Rotasi 90 derajat searah jarum jam
+    /// Transformasi (Transformation)
+    //// ID: Rotasi 90 derajat searah jarum jam
+    //// EN: 90 degrees clockwise rotation
     public void putar() {
-        int[][] bentuk_diputar = new int[this.getPanjang()][this.getTinggi()];
+        for (Titik titik : bentuk) {
+            // ID: Memutar tiap titik
+            // EN: Rotate each point
+            titik.setX(this.getTinggi() - 1 - titik.getY());
+            titik.setY(titik.getX());
 
-        for (int i = 0; i < panjang; i++) {
-            for (int j = 0; j < tinggi; j++) {
-                bentuk_diputar[i][j] = bentuk[tinggi-1-j][i];
-            }
+            // ID: Tukar panjang dan tingginya
+            // EN: Swap the length and width
+            int temp = tinggi;
+            this.setTinggi(panjang);
+            this.setPanjang(temp);
         }
-
-        int temp = tinggi;
-        this.setTinggi(panjang);
-        this.setPanjang(temp);
-        this.setBentuk(bentuk_diputar);
+        
     }
 
-    //// Pencerminan
+    /// Pencerminan (Reflection)
+    //// ID: Pencerminan terhadap sumbu-x
+    //// EN: Reflection with respect to the x-axis 
     public void cermin() {
-        int[][] bentuk_dicermin = new int[this.getTinggi()][this.getPanjang()];
-
-        for (int i = 0; i < tinggi; i++) {
-            for (int j = 0; j < panjang; j++) {
-                bentuk_dicermin[i][j] = bentuk[i][panjang-1-j];
-            }
+        for (Titik titik : bentuk) {
+            titik.setX(this.panjang - 1 - titik.getX());
         }
-
-        this.setBentuk(bentuk_dicermin);
     }
 }
