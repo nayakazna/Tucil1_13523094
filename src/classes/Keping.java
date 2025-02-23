@@ -37,25 +37,25 @@ public class Keping {
     }
 
     /// Konstruktor (Constructor)
-    public Keping(int panjang, int tinggi, int[][] bentuk, int nTitik) {
-        this.setPanjang(panjang);
-        this.setTinggi(tinggi);
+    public Keping(int[][] bentuk) {
         this.setBentuk(bentuk);
-        this.setnTitik(nTitik);
+        this.setTinggi(this.getBentuk().length);
+        this.setPanjang(this.getBentuk()[0].length);
+        this.setnTitik(this.countGrid());
     }
-
+    
     /// Transformasi (Transformation)
     //// ID: Rotasi 90 derajat searah jarum jam
     //// EN: 90 degrees clockwise rotation
     public void putar() {
         int[][] diputar = new int[this.getPanjang()][this.getTinggi()];
-
+        
         for (int i = 0; i < panjang; i++) {
             for (int j = 0; j < tinggi; j++) {
                 diputar[i][j] = bentuk[tinggi-1-j][i];
             }
         }
-
+        
         int temp = tinggi;
         this.setTinggi(panjang);
         this.setPanjang(temp);
@@ -67,13 +67,27 @@ public class Keping {
     //// EN: Reflection with respect to the x-axis 
     public void cermin() {
         int[][] tecermin = new int[this.getTinggi()][this.getPanjang()];
-
+        
         for (int i = 0; i < this.getTinggi(); i++) {
             for (int j = 0; j < this.getPanjang(); j++) {
                 tecermin[i][j] = this.bentuk[i][this.getPanjang() - 1 - j];
             }
         }
-
+        
         this.setBentuk(tecermin);
+    }
+
+    /// Fungsi Pembantu (Helper Function(s))
+    public int countGrid() {
+        int count = 0;
+
+        for (int i = 0; i < this.getTinggi(); i++) {
+            for (int j = 0; j < this.getPanjang(); j++) {
+                if (this.getBentuk()[i][j] == 1) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
