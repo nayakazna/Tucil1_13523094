@@ -90,4 +90,14 @@ public class Keping {
         }
         return count;
     }
+
+    // printKeping
+    public void printKeping() {
+        for (int i = 0; i < this.getTinggi(); i++) {
+            for (int j = 0; j < this.getPanjang(); j++) {
+                System.out.print(this.getBentuk()[i][j]);
+            }
+            System.out.println();
+        }
+    }
 }
