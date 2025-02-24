@@ -1,5 +1,4 @@
-package src.utils;
-import src.classes.Keping;
+package src.classes;
 import java.util.HashMap;
 
 public class Data {
