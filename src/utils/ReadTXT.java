@@ -117,10 +117,10 @@ public class ReadTXT {
             }
 
             int tinggi = lineNumber - tempLineNumber;
-            int[][] bentuk = new int[tinggi][panjang];
+            char[][] bentuk = new char[tinggi][panjang];
             for (int j = 0; j < tinggi; j++) {
                 for (int k = 0; k < panjang; k++) {
-                    bentuk[j][k] = k < lines[tempLineNumber+j-1].length() && lines[tempLineNumber+j-1].charAt(k) == huruf ? 1 : 0;
+                    bentuk[j][k] = k < lines[tempLineNumber+j-1].length() && lines[tempLineNumber+j-1].charAt(k) == huruf ? huruf : ' ';
                 }
             }
 

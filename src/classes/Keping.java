@@ -4,7 +4,7 @@ public class Keping {
     // Atribut (Attributes)
     private int panjang;
     private int tinggi;
-    private int[][] bentuk;
+    private char[][] bentuk;
     private int nTitik;
 
     // Metode (Methods)
@@ -15,7 +15,7 @@ public class Keping {
     public void setTinggi(int tinggi) {
         this.tinggi = tinggi;
     }
-    public void setBentuk(int[][] bentuk) {
+    public void setBentuk(char[][] bentuk) {
         this.bentuk = bentuk;
     }
     public void setnTitik(int nTitik) {
@@ -29,7 +29,7 @@ public class Keping {
     public int getTinggi() {
         return tinggi;
     }
-    public int[][] getBentuk() {
+    public char[][] getBentuk() {
         return bentuk;
     }
     public int getnTitik() {
@@ -37,7 +37,7 @@ public class Keping {
     }
 
     /// Konstruktor (Constructor)
-    public Keping(int[][] bentuk) {
+    public Keping(char[][] bentuk) {
         this.setBentuk(bentuk);
         this.setTinggi(this.getBentuk().length);
         this.setPanjang(this.getBentuk()[0].length);
@@ -48,7 +48,7 @@ public class Keping {
     //// ID: Rotasi 90 derajat searah jarum jam
     //// EN: 90 degrees clockwise rotation
     public void putar() {
-        int[][] diputar = new int[this.getPanjang()][this.getTinggi()];
+        char[][] diputar = new char[this.getPanjang()][this.getTinggi()];
         
         for (int i = 0; i < panjang; i++) {
             for (int j = 0; j < tinggi; j++) {
@@ -66,7 +66,7 @@ public class Keping {
     //// ID: Pencerminan terhadap sumbu-x
     //// EN: Reflection with respect to the x-axis 
     public void cermin() {
-        int[][] tecermin = new int[this.getTinggi()][this.getPanjang()];
+        char[][] tecermin = new char[this.getTinggi()][this.getPanjang()];
         
         for (int i = 0; i < this.getTinggi(); i++) {
             for (int j = 0; j < this.getPanjang(); j++) {
@@ -83,7 +83,7 @@ public class Keping {
 
         for (int i = 0; i < this.getTinggi(); i++) {
             for (int j = 0; j < this.getPanjang(); j++) {
-                if (this.getBentuk()[i][j] == 1) {
+                if (Character.isLetter(this.getBentuk()[i][j])) {
                     count++;
                 }
             }
