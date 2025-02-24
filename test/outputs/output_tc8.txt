@@ -1,0 +1,8 @@
+Berhasil menyelesaikan puzzle!
+Hasil:
+C C C C 
+A A C B 
+B B B B 
+D D D D 
+Jumlah iterasi: 7192
+Waktu yang dibutuhkan: 1 ms

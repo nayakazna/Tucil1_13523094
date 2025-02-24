@@ -1,0 +1,2 @@
+Jumlah iterasi: -473230624
+Waktu yang dibutuhkan: 29669 ms

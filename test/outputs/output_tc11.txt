@@ -1,0 +1,8 @@
+Berhasil menyelesaikan puzzle!
+Hasil:
+A A D I L I 
+A A D I L I 
+A A A I I I 
+J J K K W W 
+Jumlah iterasi: 172
+Waktu yang dibutuhkan: 0 ms

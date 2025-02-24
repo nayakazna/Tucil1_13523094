@@ -1,0 +1,11 @@
+Berhasil menyelesaikan puzzle!
+Hasil:
+Z Z A B 
+A A A B 
+C C B B 
+C R R G 
+E R G G 
+E R N N 
+E R N I 
+Jumlah iterasi: 333
+Waktu yang dibutuhkan: 0 ms

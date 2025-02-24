@@ -1,0 +1,17 @@
+Berhasil menyelesaikan puzzle!
+Hasil:
+A G 
+A G 
+A G 
+A A 
+S S 
+H H 
+H D 
+D D 
+Z D 
+Z D 
+Z O 
+Z O 
+Z Z 
+Jumlah iterasi: 75
+Waktu yang dibutuhkan: 0 ms
