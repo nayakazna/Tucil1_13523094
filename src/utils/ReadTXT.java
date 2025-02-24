@@ -99,7 +99,7 @@ public class ReadTXT {
 
             int tempLineNumber = lineNumber;
             int panjang = currLine.length();
-            while (trimLeading(lines[lineNumber-1]).charAt(0) == huruf) {
+            while (trimLeading(lines[lineNumber-1]).charAt(0) == huruf && lineNumber < lines.length) {
                 currLine = lines[lineNumber-1];
                 panjang = Math.max(panjang, currLine.length());
                 // Error handling
@@ -110,10 +110,6 @@ public class ReadTXT {
                     return null;
                 }
                 lineNumber++;
-
-                if (lineNumber > lines.length) {
-                    break;
-                }
             }
 
             int tinggi = lineNumber - tempLineNumber;
@@ -125,6 +121,15 @@ public class ReadTXT {
             }
 
             kepingHashMap.put(huruf, new Keping(bentuk));
+        }
+        
+        // Error handling
+        // ID: Jumlah keping lebih dari P
+        // EN: Number of pieces is more than P
+        lineNumber--;
+        if (lineNumber < lines.length) {
+            System.err.println("Banyaknya keping lebih dari p = " + p + ".");
+            return null;
         }
         return new Data(n, m, p, kepingHashMap); 
     }
