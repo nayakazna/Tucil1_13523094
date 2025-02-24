@@ -2,7 +2,6 @@
 package src;
 import src.classes.*;
 import src.utils.*;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -24,8 +23,7 @@ public class Main {
         
         // Prep
         Papan papan = new Papan(data.getN(), data.getM());
-        HashMap<Character, Keping> kepings = data.getKepings();
-
+        
         // Solve
         Solver solver = new Solver(papan, data);
         String hasil = solver.solve();
