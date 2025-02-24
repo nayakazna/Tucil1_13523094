@@ -18,7 +18,7 @@ public class Papan {
         "\u001B[34m",
         "\u001B[35m",
         "\u001B[36m",
-        "\u001B[37m",
+        "\u001B[38;2;255;33;111m",
         "\u001B[38;2;77;62;199m",
         "\u001B[38;2;31;4;108m",
         "\u001B[38;2;93;189;204m",
@@ -40,6 +40,18 @@ public class Papan {
     };
     private static HashMap<Character, String> warnaMap;
 
+    // Getters
+    public int getN() {
+        return this.n;
+    }
+    public int getM() {
+        return m;
+    }
+    public char[][] getPetak() {
+        return petak;
+    }
+
+    // Konstruktor (Constructor)
     public Papan(int n, int m) {
         this.n = n;
         this.m = m;
