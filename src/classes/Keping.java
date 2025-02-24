@@ -100,4 +100,12 @@ public class Keping {
             System.out.println();
         }
     }
+
+    public Keping copyKeping() {
+        char[][] newBentuk = new char[tinggi][panjang];
+        for (int i = 0; i < tinggi; i++) {
+            System.arraycopy(bentuk[i], 0, newBentuk[i], 0, panjang);
+        }
+        return new Keping(newBentuk);
+    }
 }

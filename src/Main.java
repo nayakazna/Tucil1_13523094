@@ -27,7 +27,7 @@ public class Main {
         HashMap<Character, Keping> kepings = data.getKepings();
 
         // Solve
-        Solver solver = new Solver(papan, kepings);
+        Solver solver = new Solver(papan, data);
         String hasil = solver.solve();
 
         // Output

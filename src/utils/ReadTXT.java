@@ -3,9 +3,11 @@ import src.classes.Data;
 import src.classes.Keping;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -14,9 +16,14 @@ public class ReadTXT {
 
     public static Data readTxt(String filename) {
         int lineNumber = 1;
-        String[] lines = readTxtToArray(filename);
-        if (lines == null || lines.length < 3) {
-            System.err.println("Format file txt kosong atau tidak lengkap.");
+        String[] lines = null;
+        try {
+            lines = readTxtToArray(filename);
+            if (lines.length < 3) {
+                System.err.println("Format file txt kosong atau tidak lengkap.");
+                return null;
+            }
+        } catch (Exception e) {
             return null;
         }
 
@@ -71,6 +78,7 @@ public class ReadTXT {
         }
         
         HashMap<Character, Keping> kepingHashMap = new HashMap<>();
+        List<Character> kepingOrder = new ArrayList<>();
         for (int i = 0; i < p; i++) {
             // Error handling
             // ID: Jumlah keping kurang dari P
@@ -119,7 +127,7 @@ public class ReadTXT {
                     bentuk[j][k] = k < lines[tempLineNumber+j-1].length() && lines[tempLineNumber+j-1].charAt(k) == huruf ? huruf : '-';
                 }
             }
-
+            kepingOrder.add(huruf);
             kepingHashMap.put(huruf, new Keping(bentuk));
         }
         
@@ -130,7 +138,7 @@ public class ReadTXT {
             System.err.println("Banyaknya keping lebih dari p = " + p + ".");
             return null;
         }
-        return new Data(n, m, p, kepingHashMap); 
+        return new Data(n, m, p, kepingHashMap, kepingOrder); 
     }
 
     public static String[] readTxtToArray(String filename) {
@@ -143,8 +151,8 @@ public class ReadTXT {
                     lines.add(line);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.err.println("File tidak ditemukan.");
             return null;
         }
 

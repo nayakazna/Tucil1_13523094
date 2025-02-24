@@ -1,5 +1,6 @@
 package src.classes;
 import java.util.HashMap;
+import java.util.List;
 
 public class Data {
     // Atribut (Attributes)
@@ -7,7 +8,8 @@ public class Data {
     private final int m;
     private final int p;
     private final HashMap<Character, Keping> Kepings;
-
+    private final List<Character> kepingOrder;
+    
     // Metode (Methods)
     /// Getters
     public int getN() {
@@ -22,15 +24,18 @@ public class Data {
     public HashMap<Character, Keping> getKepings() {
         return Kepings;
     }
-
+    public List<Character> getKepingOrder() {
+        return kepingOrder;
+    }
 
 
     /// Konstruktor (Constructor)
-    public Data(int n, int m, int p, HashMap<Character, Keping> Kepings) {
+    public Data(int n, int m, int p, HashMap<Character, Keping> Kepings, List<Character> order) {
         this.n = n;
         this.m = m;
         this.p = p;
         this.Kepings = Kepings;
+        this.kepingOrder = order;
     }
 
     /// Metode lain (Other methods)
