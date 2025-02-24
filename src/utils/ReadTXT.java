@@ -75,7 +75,7 @@ public class ReadTXT {
             // Error handling
             // ID: Jumlah keping kurang dari P
             // EN: Number of pieces is less than P
-            if (lineNumber >= lines.length) {
+            if (lineNumber > lines.length) {
                 System.err.println("Banyaknya keping kurang dari p = " + p + ", yakni sejumlah " + i + " keping.");
                 return null;
             }
@@ -99,7 +99,7 @@ public class ReadTXT {
 
             int tempLineNumber = lineNumber;
             int panjang = currLine.length();
-            while (trimLeading(lines[lineNumber-1]).charAt(0) == huruf && lineNumber < lines.length) {
+            while (lineNumber <= lines.length && trimLeading(lines[lineNumber-1]).charAt(0) == huruf) {
                 currLine = lines[lineNumber-1];
                 panjang = Math.max(panjang, currLine.length());
                 // Error handling
@@ -126,7 +126,6 @@ public class ReadTXT {
         // Error handling
         // ID: Jumlah keping lebih dari P
         // EN: Number of pieces is more than P
-        lineNumber--;
         if (lineNumber < lines.length) {
             System.err.println("Banyaknya keping lebih dari p = " + p + ".");
             return null;
